@@ -86,6 +86,10 @@ public class basepage{
     {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
-
+    public void drop_down(String xpath,String value)
+    {
+        Select drop=new Select(driver.findElement(By.xpath(xpath)));
+        drop.selectByVisibleText(value);
+    }
 }
 

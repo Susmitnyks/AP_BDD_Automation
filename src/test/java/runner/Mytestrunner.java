@@ -53,7 +53,7 @@ public class Mytestrunner {
 
             // Send the email
             //email.send();
-            System.out.println("Email sent successfully.");
+            //System.out.println("Email sent successfully.");
         } catch (EmailException e) {
             e.printStackTrace();
         }

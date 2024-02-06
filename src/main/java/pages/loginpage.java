@@ -21,10 +21,13 @@ public class loginpage extends  basepage {
     String yes_btn="//*[@id=\"idSIButton9\"]";
     String login_page="//h2[@class='text-center mb-4']";
 
+    String learner_drop_down="//select[@Class='form-select' and @id='learner']";
+    String ass_method="//select[@Class='form-select' and @id='dropdown']";
+
 
     String lgn_btn="//*[@id=\"publishedCanvas\"]/div/div[1]/div[2]/div/div/div[7]/div/div/div/div/button/div";
     String homepage_lbl="//*[@id=\"publishedCanvas\"]/div/div[1]/div[3]/div/div/div[2]/div/div/div/div/div";
-
+    String submit_btn="//input[@Class='btn btn-primary btn-login']";
 
 
     public void launch() throws InterruptedException, IOException {
@@ -47,5 +50,18 @@ public class loginpage extends  basepage {
         Thread.sleep(4000);
         String db=driver.findElement(By.xpath(login_page)).getText();
         Assert.assertEquals("Please select your apprentices authorised Submission Attempt ID:",db);
+    }
+
+    public void learner_dropdown()
+    {
+        drop_down(learner_drop_down,"Joes Allard");
+    }
+    public void assessment_dropdown()
+    {
+        drop_down(ass_method,"B0C66915875819659053815321689425 (AM1)");
+    }
+    public void click_submit_btn()
+    {
+        click(submit_btn);
     }
 }

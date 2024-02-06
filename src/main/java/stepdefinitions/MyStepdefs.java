@@ -23,17 +23,17 @@ public class MyStepdefs extends driver_factory {
 
     @When("User select the learner")
     public void userSelectTheLearner() {
-        System.out.println("success when");
+        lp.learner_dropdown();
 
     }
 
-    @And("User select the AM{int} assesment")
+    @And("User select the AM{int} assessment")
     public void userSelectTheAMAssesment(int arg0) {
-        System.out.println("success and");
+        lp.assessment_dropdown();
     }
 
     @Then("User is navigated to home page")
     public void userIsNavigatedToHomePage() {
-        System.out.println("success then");
+        lp.click_submit_btn();
     }
 }
