@@ -22,13 +22,13 @@ public class MyStepdefs extends driver_factory {
     }
 
     @When("User select the learner")
-    public void userSelectTheLearner() {
+    public void userSelectTheLearner() throws InterruptedException {
         lp.learner_dropdown();
 
     }
 
     @And("User select the AM{int} assessment")
-    public void userSelectTheAMAssesment(int arg0) {
+    public void userSelectTheAMAssesment(int arg0) throws InterruptedException {
         lp.assessment_dropdown();
     }
 

@@ -3,10 +3,7 @@ package pages;
 import org.apache.commons.io.FileUtils;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -86,10 +83,17 @@ public class basepage{
     {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
-    public void drop_down(String xpath,String value)
-    {
-        Select drop=new Select(driver.findElement(By.xpath(xpath)));
-        drop.selectByVisibleText(value);
+    public void drop_down(String xpath,String value) throws InterruptedException {
+        try {
+            Select drop = new Select(driver.findElement(By.xpath(xpath)));
+            drop.selectByVisibleText(value);
+        }catch (NoSuchElementException e){
+            System.out.println("Refreshing due to server sleep....");
+            driver.navigate().refresh();
+            Thread.sleep(4000);
+            Select drop = new Select(driver.findElement(By.xpath(xpath)));
+            drop.selectByVisibleText(value);
+        }
     }
 }
 

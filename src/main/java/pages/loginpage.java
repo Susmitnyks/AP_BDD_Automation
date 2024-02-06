@@ -52,12 +52,10 @@ public class loginpage extends  basepage {
         Assert.assertEquals("Please select your apprentices authorised Submission Attempt ID:",db);
     }
 
-    public void learner_dropdown()
-    {
-        drop_down(learner_drop_down,"Joes Allard");
+    public void learner_dropdown() throws InterruptedException {
+        drop_down(learner_drop_down,"Joe Allard");
     }
-    public void assessment_dropdown()
-    {
+    public void assessment_dropdown() throws InterruptedException {
         drop_down(ass_method,"B0C66915875819659053815321689425 (AM1)");
     }
     public void click_submit_btn()
