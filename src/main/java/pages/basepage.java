@@ -72,7 +72,6 @@ public class basepage{
 
     }
 
-
     public void dropdown_list(String xpath_element,String xpath_value)
     {
         driver.findElement(By.xpath(xpath_element)).click();

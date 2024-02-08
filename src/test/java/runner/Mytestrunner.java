@@ -16,46 +16,47 @@ import java.time.format.DateTimeFormatter;
 @CucumberOptions(
         features = "src/main/resources/features",
         glue = {"stepdefinitions"},
-        tags = "@Login_test_case",
         monochrome = true,
         dryRun = false,
         //plugin = {"pretty","html:target/cucumber-html-report","json:cucumber.json" }
         plugin= {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"})
 public class Mytestrunner {
-    @AfterClass
-    public static void sendEmail() {
-        try {
+        @AfterClass
+        public static void sendEmail() {
+            try {
 
-            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-            LocalDateTime now = LocalDateTime.now();
-            // Create an email attachment
-            EmailAttachment attachment = new EmailAttachment();
-            attachment.setPath("C:\\Users\\SusmitSurwade\\IdeaProjects\\AP_BDD_Automation\\test-output\\SparkReport\\Spark.html"); // Replace with the actual path
-            attachment.setDisposition(EmailAttachment.ATTACHMENT);
-            attachment.setDescription("Extent Report");
-            attachment.setName("ExtentReport.html");
+                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+                LocalDateTime now = LocalDateTime.now();
+                // Create an email attachment
+                EmailAttachment attachment = new EmailAttachment();
+                attachment.setPath("C:\\Users\\SusmitSurwade\\IdeaProjects\\AP_BDD_Automation\\test-output\\SparkReport\\Spark.html"); // Replace with the actual path
+                attachment.setDisposition(EmailAttachment.ATTACHMENT);
+                attachment.setDescription("Extent Report");
+                attachment.setName("ExtentReport.html");
 
-            // Create an email
-            MultiPartEmail email = new MultiPartEmail();
-            email.setHostName("smtp.gmail.com"); // Replace with your SMTP server
-            email.setSmtpPort(465); // Replace with the SMTP port
-            email.setAuthenticator(new DefaultAuthenticator("susmit.s.surwade@gmail.com", "qzod ltfm nmav tqvw"));
-            email.setSSLOnConnect(true); // Use SSL if needed
-            email.setFrom("susmit.s.surwade@gmail.com"); // Replace with your email
-            email.addTo("susmit.s.surwade@gmail.com"); // Replace with recipient's email
-            email.setSubject("Extent Report " + dtf.format(now));
+                // Create an email
+                MultiPartEmail email = new MultiPartEmail();
+                email.setHostName("smtp.gmail.com"); // Replace with your SMTP server
+                email.setSmtpPort(465); // Replace with the SMTP port
+                email.setAuthenticator(new DefaultAuthenticator("susmit.s.surwade@gmail.com", "qzod ltfm nmav tqvw"));
+                email.setSSLOnConnect(true); // Use SSL if needed
+                email.setFrom("susmit.surwade@blenheimchalcot.com"); // Replace with your email
+                email.addTo("susmit.surwade@blenheimchalcot.com"); // Replace with recipient's email
+                //email.addTo("ajinkya.gavali@blenheimchalcot.com");
+                email.setSubject("Accelerate People Daily Test Automation Report " + dtf.format(now));
 
-            // Set the message body
-            email.setMsg("Please find the attached Extent Report.");
+                // Set the message body
+                email.setMsg("Please find the attached Extent Report.");
 
-            // Add the attachment
-            email.attach(attachment);
+                // Add the attachment
+                email.attach(attachment);
 
-            // Send the email
-            //email.send();
-            //System.out.println("Email sent successfully.");
-        } catch (EmailException e) {
-            e.printStackTrace();
+                // Send the email
+                email.send();
+                System.out.println("Email sent successfully.");
+            } catch (EmailException e) {
+                e.printStackTrace();
+            }
         }
     }
-}
+

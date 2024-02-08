@@ -6,9 +6,10 @@ import org.junit.Assert;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.Properties;
 
-public class loginpage extends  basepage {
+public class loginpage extends basepage {
     public loginpage(WebDriver driver) {
         super(driver);  //calls constructor of super class.
 
@@ -28,6 +29,7 @@ public class loginpage extends  basepage {
     String lgn_btn="//*[@id=\"publishedCanvas\"]/div/div[1]/div[2]/div/div/div[7]/div/div/div/div/button/div";
     String homepage_lbl="//*[@id=\"publishedCanvas\"]/div/div[1]/div[3]/div/div/div[2]/div/div/div/div/div";
     String submit_btn="//input[@Class='btn btn-primary btn-login']";
+    String home_page_username="//span[@class='font-semibold text-xl']";
 
 
     public void launch() throws InterruptedException, IOException {
@@ -62,4 +64,12 @@ public class loginpage extends  basepage {
     {
         click(submit_btn);
     }
+
+    public void verify_homepage()
+    {
+     explicitWait(driver,home_page_username, Duration.ofSeconds(40));
+     String user_name=driver.findElement(By.xpath(home_page_username)).getText();
+     Assert.assertEquals("Joe Allard",user_name);
+    }
+
 }
