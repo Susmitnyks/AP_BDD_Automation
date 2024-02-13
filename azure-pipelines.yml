@@ -7,15 +7,22 @@ pool:
   vmImage: 'ubuntu-latest'  # Choose the appropriate VM image
 
 steps:
+  - task: Maven@4
+    inputs:
+      mavenPomFile: 'pom.xml'
+      publishJUnitResults: true
+      testResultsFiles: '**/surefire-reports/TEST-*.xml'
+      javaHomeOption: 'JDKVersion'
+      mavenVersionOption: 'Default'
+      mavenAuthenticateFeed: false
+      effectivePomSkip: false
+      sonarQubeRunAnalysis: false
+
   - task: JavaToolInstaller@0
     inputs:
       versionSpec: '11'
       jdkArchitectureOption: 'x64'
       jdkSourceOption: 'PreInstalled'
-
-  - task: UseJavaVersion@1
-    inputs:
-      versionSpec: '11'  # Specify the Java version you are using
 
   - script: |
       mvn clean test  # Assuming you are using Maven for your Java project
