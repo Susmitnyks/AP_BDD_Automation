@@ -7,9 +7,6 @@ pool:
   vmImage: 'ubuntu-latest'  # Choose the appropriate VM image
 
 steps:
-  - task: UseJavaVersion@1
-    inputs:
-      versionSpec: '21'  # Specify the Java version you are using
 
   - script: |
       mvn clean test  # Assuming you are using Maven for your Java project
