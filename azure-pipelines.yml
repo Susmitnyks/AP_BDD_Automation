@@ -1,4 +1,9 @@
 trigger:
+- task: JavaToolInstaller@0
+  inputs:
+    versionSpec: '11'
+    jdkArchitectureOption: 'x64'
+    jdkSourceOption: 'PreInstalled'
   branches:
     include:
       - main  # Adjust this to your main branch name
