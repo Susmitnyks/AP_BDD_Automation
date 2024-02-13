@@ -43,7 +43,7 @@ public class Mytestrunner {
                 email.setFrom("susmit.surwade@blenheimchalcot.com"); // Replace with your email
                 email.addTo("susmit.surwade@blenheimchalcot.com"); // Replace with recipient's email
                 //email.addTo("ajinkya.gavali@blenheimchalcot.com");
-                email.setSubject("Accelerate People Daily Test Automation Report " + dtf.format(now));
+                email.setSubject("AP Daily Test Automation Report " + dtf.format(now));
 
                 // Set the message body
                 email.setMsg("Please find the attached Extent Report.");

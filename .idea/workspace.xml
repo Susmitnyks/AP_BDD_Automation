@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9245acf8-a647-48bf-b6d5-87274dbe841c" name="Changes" comment="add evidence test scenario completed">
+    <list default="true" id="9245acf8-a647-48bf-b6d5-87274dbe841c" name="Changes" comment="add and verify evidence">
+      <change afterPath="$PROJECT_DIR$/azure-pipelines.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/homepage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/homepage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stepdefinitions/MyStepdefs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stepdefinitions/MyStepdefs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/features/homepage.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/features/homepage.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-output/SparkReport/Spark.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/SparkReport/Spark.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/runner/Mytestrunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/runner/Mytestrunner.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,7 +188,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707414591510</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add and verify evidence">
+      <option name="closed" value="true" />
+      <created>1707807942925</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1707807942925</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -208,6 +214,7 @@
     <MESSAGE value="AP login code" />
     <MESSAGE value="AP login code optimization for server sleep." />
     <MESSAGE value="add evidence test scenario completed" />
-    <option name="LAST_COMMIT_MESSAGE" value="add evidence test scenario completed" />
+    <MESSAGE value="add and verify evidence" />
+    <option name="LAST_COMMIT_MESSAGE" value="add and verify evidence" />
   </component>
 </project>
