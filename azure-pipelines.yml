@@ -1,29 +1,19 @@
 trigger:
   branches:
     include:
-      - main  # Adjust this to your main branch name
+      - main
 
 pool:
-  vmImage: 'ubuntu-latest'  # Choose the appropriate VM image
+  vmImage: 'ubuntu-latest'
 
 steps:
-  - task: Maven@4
+  - task: Maven@3
     inputs:
       mavenPomFile: 'pom.xml'
       publishJUnitResults: true
       testResultsFiles: '**/surefire-reports/TEST-*.xml'
       javaHomeOption: 'JDKVersion'
+      jdkVersionOption: '11'
       mavenVersionOption: 'Default'
       mavenAuthenticateFeed: false
-      effectivePomSkip: false
-      sonarQubeRunAnalysis: false
-
-  - task: JavaToolInstaller@0
-    inputs:
-      versionSpec: '11'
-      jdkArchitectureOption: 'x64'
-      jdkSourceOption: 'PreInstalled'
-
-  - script: |
-      mvn clean test  # Assuming you are using Maven for your Java project
-    displayName: 'Run Tests'
+      goals: 'clean test'
