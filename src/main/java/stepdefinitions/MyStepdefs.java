@@ -16,7 +16,7 @@ public class MyStepdefs extends driver_factory {
     loginpage lp=new loginpage(driver);
     homepage hp=new homepage(driver);
 
-    public MyStepdefs() throws IOException {
+    public MyStepdefs() throws IOException, InterruptedException {
     }
     @Given("User is on the login page")
     public void userIsOnTheLoginPage() throws IOException, InterruptedException {
@@ -79,5 +79,17 @@ public class MyStepdefs extends driver_factory {
     @Then("Popup will get close and evidence will get add in evidence section.")
     public void popupWillGetCloseAndEvidenceWillGetAddInEvidenceSection() throws InterruptedException {
         hp.verify_added_evidence();
+    }
+
+    @When("Assessor clicks on added evidence Accordion")
+    public void assessorClicksOnAddedEvidenceAccordion() throws InterruptedException {
+        hp.click_added_evidence();
+
+    }
+
+    @Then("Added evidence description , location and page no by should be displayed")
+    public void addedEvidenceDecriptionLocationAndPageNoShouldBeDisplayed() throws InterruptedException {
+        hp.verify_evidence();
+
     }
 }

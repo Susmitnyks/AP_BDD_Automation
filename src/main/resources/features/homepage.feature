@@ -1,4 +1,4 @@
-Feature: Test Add Evidence Functionality
+Feature: Test Add Evidence Verify Functionality.
 
   @Add_evidence
   Scenario: Verify successful evidence addition.
@@ -9,3 +9,5 @@ Feature: Test Add Evidence Functionality
     And Assessor enters the required Page no on popup.
     And Assessor clicks on "Add evidence" button on popup.
     Then Popup will get close and evidence will get add in evidence section.
+    When Assessor clicks on added evidence Accordion
+    Then Added evidence description , location and page no by should be displayed
