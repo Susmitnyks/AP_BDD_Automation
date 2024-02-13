@@ -1,19 +1,14 @@
 trigger:
   branches:
     include:
-      - main
+      - main  # Adjust this to your main branch name
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'ubuntu-latest'  # Choose the appropriate VM image
 
 steps:
   - task: Maven@3
     inputs:
-      mavenPomFile: 'pom.xml'
-      publishJUnitResults: true
-      testResultsFiles: '**/surefire-reports/TEST-*.xml'
-      javaHomeOption: 'JDKVersion'
-      jdkVersionOption: '11'
-      mavenVersionOption: 'Default'
-      mavenAuthenticateFeed: false
-      goals: 'clean test'
+      mavenPomFile: 'pom.xml'  # Path to your POM file
+      options: '-Dtest=runner.MyTestrunner'  # Specify the test runner class to execute
+      goals: 'test'  # Run Maven test goal
