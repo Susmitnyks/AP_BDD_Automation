@@ -7,6 +7,10 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+  - task: UseJavaVersion@1
+    inputs:
+      versionSpec: '11'
+      architecture: 'x64'  # Adjust architecture if needed
   - task: Maven@3
     inputs:
       mavenPomFile: 'pom.xml'
