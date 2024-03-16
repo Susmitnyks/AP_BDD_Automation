@@ -27,6 +27,9 @@ public class homepage extends basepage{
     String select_doc_dropdown="//select[@class='mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-violet-600 sm:text-sm sm:leading-6']";
     private int countbefore;
     private int countafter;
+    String DA_criteria_drp_down="//select[@id=\"criteria-label-dropdown\"]";
+    String insufficient_review_btn="//*[text()='Insufficient' and @id='memory-option-0-label']";
+
 
     public int count_before()
     {
@@ -91,7 +94,17 @@ public class homepage extends basepage{
 
         //comment
         // need to fix bug for getting evidence list
+        driver.quit();
 
+    }
+
+    public void select_da_criteria() throws InterruptedException {
+        drop_down(DA_criteria_drp_down,"DA 4");
+    }
+
+    public void click_evidence_review_insuff()
+    {
+        click(insufficient_review_btn);
     }
 
 

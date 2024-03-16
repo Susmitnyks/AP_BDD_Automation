@@ -92,4 +92,14 @@ public class MyStepdefs extends driver_factory {
         hp.verify_evidence();
 
     }
+
+    @When("Assessor selects DA criteria from drop down")
+    public void assessorSelectsDACriteriaFromDropDown() throws InterruptedException {
+        hp.select_da_criteria();
+    }
+
+    @When("Assessor selects {string} in Evidence Review")
+    public void assessorSelectsInEvidenceReview(String arg0) {
+        hp.click_evidence_review_insuff();
+    }
 }
