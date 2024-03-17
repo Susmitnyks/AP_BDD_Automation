@@ -16,7 +16,7 @@ import java.time.format.DateTimeFormatter;
 @CucumberOptions(
         features = "src/main/resources/features/homepage.feature",
         glue = {"stepdefinitions"},
-        tags = "@Submit_Assessment",
+        tags = "@Test_tag",
         monochrome = true,
         dryRun = false,
         //plugin = {"pretty","html:target/cucumber-html-report","json:cucumber.json" }
@@ -39,7 +39,7 @@ public class Mytestrunner {
                 MultiPartEmail email = new MultiPartEmail();
                 email.setHostName("smtp.gmail.com"); // Replace with your SMTP server
                 email.setSmtpPort(465); // Replace with the SMTP port
-                email.setAuthenticator(new DefaultAuthenticator("susmit.s.surwade@gmail.com", "qzod ltfm nmav tqvw"));
+                email.setAuthenticator(new DefaultAuthenticator("automationsreport@gmail.com", "ixwe pwrz xprs adwf"));
                 email.setSSLOnConnect(true); // Use SSL if needed
                 email.setFrom("susmit.surwade@blenheimchalcot.com"); // Replace with your email
                 email.addTo("susmit.surwade@blenheimchalcot.com"); // Replace with recipient's email

@@ -102,4 +102,9 @@ public class MyStepdefs extends driver_factory {
     public void assessorSelectsInEvidenceReview(String arg0) {
         hp.click_evidence_review_insuff();
     }
+
+    @Given("Test given")
+    public void testGiven() {
+        System.out.println("Success");
+    }
 }

@@ -17,3 +17,7 @@ Feature: Test Add Evidence Verify Functionality.
       Given Assessor is on the home page
       When Assessor selects DA criteria from drop down
       When Assessor selects "Insufficient" in Evidence Review
+
+   @Test_tag
+   Scenario: Test Scenario.
+     Given Test given
