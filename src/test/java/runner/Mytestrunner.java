@@ -50,8 +50,7 @@ public class Mytestrunner {
                 email.setMsg("Please find the attached Extent Report.");
 
                 // Add the attachment
-                email.attach(attachment);
-
+                //email.attach(attachment);
                 // Send the email
                 email.send();
                 System.out.println("Email sent successfully.");
