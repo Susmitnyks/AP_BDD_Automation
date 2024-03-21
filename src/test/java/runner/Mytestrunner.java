@@ -16,7 +16,7 @@ import java.time.format.DateTimeFormatter;
 @CucumberOptions(
         features = "src/main/resources/features/homepage.feature",
         glue = {"stepdefinitions"},
-        tags = "@Test_tag",
+        tags = "@Add_evidence",
         monochrome = true,
         dryRun = false,
         //plugin = {"pretty","html:target/cucumber-html-report","json:cucumber.json" }
