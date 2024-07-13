@@ -17,3 +17,4 @@ steps:
       mavenPomFile: 'pom.xml'
       options: '-B'  # Optional: Specify Maven command-line options
       goals: 'clean test'  # Specify the Maven goals to execute
+    displayName: 'Run Maven Tests'
