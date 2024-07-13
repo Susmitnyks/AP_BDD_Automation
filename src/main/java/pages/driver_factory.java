@@ -4,6 +4,7 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.io.FileInputStream;
@@ -15,21 +16,24 @@ public class driver_factory {
         //Creating a workbook
         XSSFWorkbook workbook = new XSSFWorkbook(fs);
         XSSFSheet sheet = workbook.getSheetAt(0);
-        String value= String.valueOf(sheet.getRow(row_no).getCell(cell_no));
+        String value = String.valueOf(sheet.getRow(row_no).getCell(cell_no));
         return value;
     }
+
     public WebDriver getdriver() throws IOException {
-        String browser=this.getcell_value(1,0);
-        WebDriver driver=null;
-        //driver_factory=new ChromeDriver();
-        //return driver_factory;
-        switch (browser){
+        String browser = this.getcell_value(1, 0);
+        WebDriver driver = null;
+
+        switch (browser) {
             case "chrome":
-                driver=new ChromeDriver();
+                ChromeOptions options = new ChromeOptions();
+                options.setBinary("C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe");
+                options.addArguments("user-data-dir=C:\\Users\\SusmitSurwade\\AppData\\Local\\Google\\Chrome\\User Data\\Default");
+                driver = new ChromeDriver(options);
                 break;
 
             case "firefox":
-                driver=new FirefoxDriver();
+                driver = new FirefoxDriver();
                 break;
         }
         return driver;

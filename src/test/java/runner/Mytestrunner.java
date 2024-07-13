@@ -14,9 +14,9 @@ import java.time.format.DateTimeFormatter;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/main/resources/features/homepage.feature",
+        features = "src/main/resources/features/Pre-assessment.feature",
         glue = {"stepdefinitions"},
-        tags = "@Add_evidence",
+        tags = "",
         monochrome = true,
         dryRun = false,
         //plugin = {"pretty","html:target/cucumber-html-report","json:cucumber.json" }
@@ -50,7 +50,7 @@ public class Mytestrunner {
                 email.setMsg("Please find the attached Extent Report.");
 
                 // Add the attachment
-                //email.attach(attachment);
+                email.attach(attachment);
                 // Send the email
                 email.send();
                 System.out.println("Email sent successfully.");

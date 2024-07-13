@@ -1,23 +1,30 @@
 package pages;
 
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.io.IOException;
 import org.apache.commons.io.FileUtils;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
 
 public class basepage{
-
     WebDriver driver;
     public basepage(WebDriver driver) { // basepage constructor
         this.driver = driver;
@@ -82,17 +89,32 @@ public class basepage{
     {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
-    public void drop_down(String xpath,String value) throws InterruptedException {
+    public void drop_down(String xpath,String value,String name) throws InterruptedException {
         try {
-            Select drop = new Select(driver.findElement(By.xpath(xpath)));
-            drop.selectByVisibleText(value);
+            Thread.sleep(2000);
+            String dynamicXPath = "//span[contains(text(), '" + value + "')]";
+            driver.findElement(By.xpath(xpath)).click();
+            Thread.sleep(2000);
+            driver.findElement(By.xpath(dynamicXPath)).click();
         }catch (NoSuchElementException e){
+            Thread.sleep(2000);
             System.out.println("Refreshing due to server sleep....");
-            driver.navigate().refresh();
-            Thread.sleep(4000);
-            Select drop = new Select(driver.findElement(By.xpath(xpath)));
-            drop.selectByVisibleText(value);
+            String dynamicXPath = "//span[contains(text(), '" + value + "')]";
+            driver.findElement(By.xpath(xpath)).click();
+            Thread.sleep(2000);
+            driver.findElement(By.xpath(dynamicXPath)).click();
+
         }
+    }
+
+
+    public void dropdown(String xpath,String value) throws InterruptedException {
+       /* driver.findElement(By.xpath(xpath)).click();
+        Select objSelect =new Select(driver.findElement(By.xpath(xpath)));
+        objSelect.selectByValue(value);*/
+        driver.findElement(By.xpath(xpath)).click();
+        Actions actions = new Actions(driver);
+        actions.sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
     }
 }
 
