@@ -22,7 +22,7 @@ import java.time.format.DateTimeFormatter;
         //plugin = {"pretty","html:target/cucumber-html-report","json:cucumber.json" }
         plugin= {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"})
 public class Mytestrunner {
-        @AfterClass
+        /*@AfterClass
         public static void sendEmail() {
             try {
 
@@ -57,6 +57,6 @@ public class Mytestrunner {
             } catch (EmailException e) {
                 e.printStackTrace();
             }
-        }
+        }*/
     }
 
